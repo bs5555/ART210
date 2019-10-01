@@ -4,9 +4,7 @@ import peasy.*;
 PeasyCam cam;
  
 void setup() {
-  //size(800,800,P3D);
-   size(800,800,OPENGL);
-  // hint(ENABLE_OPENGL_2X_SMOOTH);
+  size(800,800,P3D);
   cam = new PeasyCam(this, 120);
   cam.setMinimumDistance(50);
   cam.setMaximumDistance(500);
@@ -16,6 +14,7 @@ void Fractal(float x,float y,float z,float s, float f, int l){
   translate(x,y,z);
   noStroke();
   box(s);
+  //sphere(s);
   l--;
   if (l>0) {
     float ox=-s/2;
@@ -33,12 +32,12 @@ void Fractal(float x,float y,float z,float s, float f, int l){
 }
  
 void draw() {
-  background(0);
-  shininess(5.0);
-  lightSpecular(200,200,200);
-  directionalLight(153,153,255,-1,0,0);
-  pointLight(50,50,200,65,60,100);
-  ambientLight(102,51,204);
-  specular(255,255,255);
-  Fractal(0,0,0,40,0.4,5);
+  background(color(0,0,0)); 
+  shininess(10.0);                        //shininess of the objects we draw
+  lightSpecular(200,200,200);             //specular light color
+  directionalLight(153,153,255,-1,0,0);   //directional light
+  pointLight(50,50,200,65,60,100);        //a spotlight
+  ambientLight(102,102,204);              //ambient light
+  specular(255,255,255);                  //specular color of the objects
+  Fractal(0,0,0,40,0.4,4);
 }
