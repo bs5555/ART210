@@ -1,0 +1,30 @@
+﻿coffee,category,calories,caffeine,price
+Green Tea,TEA,0,25,0.10
+Espresso,COFFEE,5,65,0.05
+Yerba Mate,TEA,5,85,0.03
+Double Espresso,COFFEE,6,130,0.04
+Americano,COFFEE,15,225,0.02
+Americano + milk,COFFEE,30,225,0.02
+English Breakfast + 1 sugar,TEA,39,26,0.13
+Turkish Coffee ,COFFEE,46,25,0.12
+Red Bull,SOFT DRINK,46,77,0.03
+Sugar-free Hot Chocolate,CHOCOLATE,60,5,0.50
+Instant Coffee + 2 sugars,COFFEE,83,47,0.01
+Café Crème,COFFEE,106,225,0.02
+Cappuccino ,COFFEE,120,150,0.03
+Pepsi,SOFT DRINK,138.6,38,0.03
+Coke ,SOFT DRINK,150,32,0.03
+Latte,COFFEE,190,150,0.03
+Dark Chocolate Bar ,NON-DRINK,205,42,0.03
+Mocha (small),COFFEE,220,195,0.02
+Chai Latte ,TEA,240,95,0.05
+Lucozade,SOFT DRINK,266,46,0.02
+Mountain Dew,SOFT DRINK,290,91,0.01
+Spiced Hot Chocolate ,CHOCOLATE,320,25,0.24
+Ghana-Java Hot Chocolate ,CHOCOLATE,380,25,0.24
+Vanilla Cream Frappuccino ,COFFEE,400,65,0.10
+Frappuccino ,COFFEE,410,110,0.06
+Caramel Sticky Mocha ,COFFEE,420,110,0.05
+Mocha (big),COFFEE,430,150,0.04
+Hot choc + marshmallows,CHOCOLATE,480,25,0.23
+Coffee Ice Cream ,NON-DRINK,500,48,0.06
