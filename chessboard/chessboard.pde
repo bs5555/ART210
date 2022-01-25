@@ -13,6 +13,7 @@ void draw()
    {
      for(int y = 0; y < 1000; y=y+100)
      {  
+       //println(counter);
        if(counter % 2 == 0)
        {
          fill(white);
