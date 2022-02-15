@@ -24,7 +24,7 @@ void draw()
   
 }
 
-void mouseClicked() 
+void mousePressed() 
 {
   for(int i = 0; i<sq.length; i=i+1)
   {

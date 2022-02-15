@@ -9,8 +9,8 @@ class planet
   
   planet()
   {
-    this.radius = random(100)+10;
-    this.distance = random(500)+30;
+    this.radius = random(10)+10;
+    this.distance = random(300)+30;
     this.speed = random(2.0)-random(2.0);
     this.fillc = color(round(random(255)),round(random(255)),round(random(255)));
   }
@@ -20,6 +20,9 @@ class planet
     if(nMoon < 10)
     {
       moon[nMoon] = new planet();
+      moon[nMoon].radius = moon[nMoon].radius/3.0; 
+      moon[nMoon].distance = moon[nMoon].distance/5.0; 
+      moon[nMoon].speed = moon[nMoon].speed+1.5; 
       nMoon = nMoon + 1; 
     }  
   }
