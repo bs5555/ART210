@@ -1,7 +1,7 @@
 sprite s;
-sprite gr;
-sprite gr1;
-ArrayList<sprite> boulders = new ArrayList<sprite>();
+boulders b;
+ground g;
+int state = 0;  //0 = running, 1 = jumping, 
 
 void setup()
 {
@@ -12,95 +12,31 @@ void setup()
   s.cx=200;
   s.loadFrame("character1.png");
   s.loadFrame("character2.png");
-  ground_setup();
-  setup_boulders();
+  g = new ground();
+  b = new boulders();
 }
 
 void draw()
 {
   background(color(255,0,100));
-  gr.step();
-  gr.show();
-  gr1.step();
-  gr1.show();
-  ground_step();
-  step_boulders();
-  show_boulders();
+  g.step();
+  g.show();
+  b.step();
+  b.show();
   s.step();
   s.show();
 }
 
-void setup_boulders()
-{
-  for(int i=0; i<5; i=i+1)
+void keyPressed() {
+  if(keyCode == 32)
   {
-    sprite temp = new sprite();
-    temp.cx=width+random(width);
-    temp.cy=580+random(20);
-    temp.dir=270;
-    temp.speed=15;
-    boulders.add(temp);
+    state = 1;
   }
 }
 
-void show_boulders()
-{
-  for(int i=0; i<boulders.size(); i=i+1)
-  {
-    sprite temp = boulders.get(i);
-    temp.step();
-    temp.show();
-  }
-}
 
-void step_boulders()
-{
-  for(int i=0; i<boulders.size(); i=i+1)
-  {
-    sprite temp = boulders.get(i);
-    if(temp.cx <= 0) 
-    {
-      boulders.remove(i);
-      temp.cx=width+random(width*3);
-      temp.cy=580+random(20);
-      temp.dir=270;
-      temp.speed=15;
-      boulders.add(temp);
-    }
-  }
-}
 
-void ground_setup()
-{
-  gr = new sprite();
-  gr.cx = 0;
-  gr.cy = 550;
-  gr.dir=270;
-  gr.speed=15;
-  gr.loadFrame("ground.png");
-  
-  gr1 = new sprite();
-  gr1.cx = gr.im[0].width;
-  gr1.cy = 550;
-  gr1.dir=270;
-  gr1.speed=15;
-  gr1.loadFrame("ground.png");
-}
 
-void ground_step()
-{
-  if(gr1.cx <= 0)
-  {
-    println("change");
-    gr.cx = gr1.cx+gr.im[0].width;
-  }
-  if(gr.cx <= 0)
-  {
-    println("change");
-    gr1.cx = gr.cx+gr.im[0].width;
-  }
-  
-}
 
 
 
@@ -118,6 +54,8 @@ class sprite
   float nextdir = 0;             //prevoius direction
   float nextspeed = 0;           //next speed
   float collision = 100;         //next direction
+  float acceleration = 0.0;      //acceleration 
+  float gravity = 0.0;           //gravity
   
   sprite()
   {
@@ -126,6 +64,7 @@ class sprite
   
   void step()
   {
+    this.speed = this.speed + this.acceleration - this.gravity;
     this.cx=this.cx+(sin(radians(this.dir))*speed);
     this.cy=this.cy+(cos(radians(this.dir))*speed);
     /*if(cx < 0) cx = width;
