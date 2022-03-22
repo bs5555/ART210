@@ -26,7 +26,13 @@ void setup()
 void draw()
 {
   
-  println(amp.analyze()*1000);
+  float level = amp.analyze();
+  if(level > 0.05)
+  {
+    z.jumpSpeed = level*500.0;
+    z.jump();
+  }
+  
   background(color(255,0,100));
   g.step();
   g.show();
