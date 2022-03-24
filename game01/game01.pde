@@ -6,6 +6,7 @@ sprite s;
 boulders b;
 ground g;
 zman z;
+coll c;
 float grav = 1.5; //power of gravity
 
 
@@ -13,9 +14,12 @@ void setup()
 {
   size(1000,800);
   frameRate(25);
+  c = new coll();
   z = new zman(grav);
+  c.addCharacter(z.s);
   g = new ground();
   b = new boulders();
+  
   
   amp = new Amplitude(this);
   in = new AudioIn(this, 0);
@@ -32,14 +36,21 @@ void draw()
     z.jumpSpeed = level*500.0;
     z.jump();
   }
-  
   background(color(255,0,100));
   g.step();
-  g.show();
   b.step();
-  b.show();
   z.step();
+  
+  boolean coll = c.detect(0);
+  if(coll)
+  {
+    z.die();
+  }
+  
+  g.show(); 
+  b.show();
   z.show();
+  z.s.showBox();
 }
 
 void keyPressed() {

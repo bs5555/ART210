@@ -13,6 +13,7 @@ boulders()
     temp.dir=270;
     temp.speed=15;
     b.add(temp);
+    c.addBoulder(b.get(i));
   }
 }
 
@@ -33,12 +34,14 @@ void step()
     sprite temp = b.get(i);
     if(temp.cx <= 0) 
     {
+      c.removeBoulder(i);
       b.remove(i);
       temp.cx=width+random(width*3);
-      temp.cy=580+random(20);
+      temp.cy=560+random(20);
       temp.dir=270;
       temp.speed=15;
       b.add(temp);
+      c.addBoulder(b.get(i));
     }
   }
 }

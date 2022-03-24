@@ -10,7 +10,7 @@ class sprite
   float speed = 0;               //previous speed
   float nextdir = 0;             //prevoius direction
   float nextspeed = 0;           //next speed
-  float collision = 100;         //next direction
+  float collision = 50;          //next direction
   float acceleration = 0.0;      //acceleration 
   float gravity = 0.0;           //gravity
   
@@ -30,11 +30,18 @@ class sprite
     if(cy > height) cy = 0;*/
   }
   
+  void showBox()
+  {
+    noStroke();
+    fill(color(255,255,255,100));
+    circle(this.cx,this.cy,this.collision*2.0);
+  }
+  
   void show()
   {
     if(nImg == 0)
     {
-      circle(this.cx,this.cy,this.collision);
+      circle(this.cx,this.cy,this.collision*2.0);
     }
     else
     {
