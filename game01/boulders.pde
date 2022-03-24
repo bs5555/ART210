@@ -12,8 +12,11 @@ boulders()
     temp.cy=580+random(20);
     temp.dir=270;
     temp.speed=15;
+    temp.loadFrame("skull1.png");
+    temp.loadFrame("skull2.png");
     b.add(temp);
     c.addBoulder(b.get(i));
+    
   }
 }
 
@@ -24,6 +27,7 @@ void show()
     sprite temp = b.get(i);
     temp.step();
     temp.show();
+    //temp.showBox();
   }
 }
 
@@ -40,9 +44,19 @@ void step()
       temp.cy=560+random(20);
       temp.dir=270;
       temp.speed=15;
+      temp.loadFrame("skull1.png");
+      temp.loadFrame("skull2.png");
       b.add(temp);
       c.addBoulder(b.get(i));
     }
   }
 }
+ void stop()
+ {
+   for(int i=0; i<nBoulders; i=i+1)
+  {
+    b.get(i).speed = 0;
+  }
+ }
+
 }

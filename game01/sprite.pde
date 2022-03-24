@@ -50,7 +50,10 @@ class sprite
         cImg = cImg + 1;
         if(cImg >= nImg) cImg = 0;    
       } 
+      pushMatrix();
+      translate(this.im[0].width/-2.0,this.im[0].height/-2.0);
       image(im[cImg],this.cx,this.cy);
+      popMatrix();
     }
   }
   

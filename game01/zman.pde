@@ -21,6 +21,11 @@ class zman
     this.d = new sprite();
     this.d.loadFrame("character3.png");
     this.d.loadFrame("character3.png");
+    this.d.cx=200;
+    this.d.cy=this.groundLevel;
+    this.d.speed=1;
+    this.d.dir = 180;
+    this.d.acceleration = 2;
     this.s = r;
   }
   
@@ -51,19 +56,11 @@ class zman
   
   void show()
   {
-    if(this.state >= 0)
-    {
+    
       this.s.step();
-      pushMatrix();
-      translate(this.s.im[0].width/-2.0,this.s.im[0].height/-2.0);
       this.s.show();
-      popMatrix();
-    }
-    else
-    {
-      this.s=d;
-      this.s.show();
-    }
+
+    
   }
   
   void jump()
@@ -79,5 +76,6 @@ class zman
   void die()
   {
     this.state = -1;
+    this.s=this.d;
   }
 }

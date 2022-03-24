@@ -45,12 +45,14 @@ void draw()
   if(coll)
   {
     z.die();
+    g.stop();
+    b.stop();
   }
   
   g.show(); 
   b.show();
   z.show();
-  z.s.showBox();
+  //z.s.showBox();
 }
 
 void keyPressed() {
