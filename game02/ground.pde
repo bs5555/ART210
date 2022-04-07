@@ -49,9 +49,9 @@ void show()
   this.gr.step();
   this.gr1.step();
   pushMatrix();
-  translate(this.gr.im[0].width/2.0,this.gr.im[0].height/2.0);
-  this.gr.show();
-  this.gr1.show();
+    translate(this.gr.im[0].width/2.0,this.gr.im[0].height/2.0);
+    this.gr.show();
+    this.gr1.show();
   popMatrix();
 }
 }

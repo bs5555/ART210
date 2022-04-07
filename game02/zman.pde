@@ -11,8 +11,9 @@ class zman
   float grav = 0;         //local copy of gravity
   float groundLevel = 500; //ground level in pixels for zman
 
-  zman(float gravity)
+  zman(float gravity, float grl)
   {
+    this.groundLevel = grl*0.9;
     this.grav = gravity;
     this.r = new sprite();
     this.r.cx=200;
@@ -74,15 +75,15 @@ class zman
   
   void jump()
   {
-   if(this.state == 0)
-    {
+    //if(this.state == 0)
+    //{
       this.state = 1;
       this.s.speed = jumpSpeed; 
       this.s.dir = 180.0;
       PImage[] temp = this.s.im;
       this.s.im=this.j.im;
       this.j.im=temp;
-    }
+    //}
   }
   
   void die()

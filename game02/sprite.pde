@@ -59,8 +59,8 @@ class sprite
   
   void loadFrame(String fname)
   {
-     this.im[nImg]=loadImage(fname);
-     nImg = nImg + 1;
+    this.im[nImg]=loadImage(fname);
+    nImg = nImg + 1;
   }
   
 }

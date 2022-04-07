@@ -1,17 +1,17 @@
 class boulders
 {
   ArrayList<sprite> b = new ArrayList<sprite>();
-  int nBoulders = 1;
+  int nBoulders = 16;
   float ground_level = 100;
 
 boulders(float level)
 {
   for(int i=0; i<nBoulders; i=i+1)
   {
-    this.ground_level = level*0.88;
+    this.ground_level = level*0.9;
     sprite temp = new sprite();
-    temp.cx=width+random(width);
-    temp.cy=this.ground_level+random(20);
+    temp.cx=width+random(width*3);
+    temp.cy=this.ground_level-random(20);
     temp.dir=270;
     temp.speed=15;
     temp.loadFrame("skull1.png");
@@ -42,10 +42,11 @@ void step()
     {
       c.removeBoulder(i);
       b.remove(i);
-      temp.cx=width+random(width*3);
-      temp.cy=this.ground_level+random(20);
+      temp.cx=width+random(width);
+      //temp.cy=this.ground_level-random(20);
       temp.dir=270;
       temp.speed=15;
+      temp.nImg = 0;
       temp.loadFrame("skull1.png");
       temp.loadFrame("skull2.png");
       b.add(temp);
@@ -53,12 +54,14 @@ void step()
     }
   }
 }
- void stop()
+
+
+void stop()
+{
+ for(int i=0; i<nBoulders; i=i+1)
  {
-   for(int i=0; i<nBoulders; i=i+1)
-  {
-    b.get(i).speed = 0;
-  }
+   b.get(i).speed = 0;
  }
+}
 
 }

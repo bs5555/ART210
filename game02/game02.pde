@@ -21,19 +21,18 @@ PFont fonts;
 
 void setup()
 {
-  size(1000,800);
+  //size(1000,800);
   w = 1000;
   h = 800;
   surface.setTitle("Zman v0.1");
   surface.setResizable(true);
   surface.setIcon(loadImage("skull1.png"));
+  fullScreen(P3D);
   frameRate(25);
   font = createFont("xx.ttf",100);
   fonts = createFont("xx.ttf",24);
   s=new startscreen();
   o=new gameover();
-  
-  ground_level = height*0.8;
   init();
   amp = new Amplitude(this);
   in = new AudioIn(this, 0);
@@ -109,8 +108,9 @@ void keyPressed()
 
 void init()
 {
+  ground_level = height*0.8;
   c = new coll();
-  z = new zman(grav);
+  z = new zman(grav,ground_level);
   c.addCharacter(z.s);
   g = new ground(ground_level,"ground.png");
   b = new boulders(ground_level);

@@ -18,7 +18,7 @@ class gameover
     fill(color(0,0,0,10));
     noStroke();
     rect(0,0,width,height);
-     textAlign(CENTER);
+    textAlign(CENTER);
     textFont(font);
     pushMatrix();
       translate(width/2,height/3);
